@@ -28,28 +28,36 @@ class CurrencyConverterMaterialPage extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const Text(
-              "0",
-              style: TextStyle(
-                fontSize: 100,
-                color: Colors.white,
-                fontWeight: FontWeight.w800,
+            Container(
+              padding: const EdgeInsets.all(10),
+              margin: const EdgeInsets.all(10),
+              color: Colors.black,
+              child: const Text(
+                "0",
+                style: TextStyle(
+                  fontSize: 100,
+                  color: Colors.white,
+                  fontWeight: FontWeight.w800,
+                ),
               ),
             ),
-            TextField(
-              style: const TextStyle(color: Colors.black),
-              decoration: InputDecoration(
-                labelStyle: const TextStyle(color: Colors.black),
-                hint: const Text("Type your number here"),
-                prefixIcon: const Icon(Icons.monetization_on_outlined),
-                filled: true,
-                fillColor: Colors.white,
-                focusedBorder: border,
-                enabledBorder: border,
-              ),
-              keyboardType: const TextInputType.numberWithOptions(
-                decimal: true,
-                signed: true,
+            Container(
+              padding: const EdgeInsets.symmetric(horizontal: 10.0),
+              child: TextField(
+                style: const TextStyle(color: Colors.black),
+                decoration: InputDecoration(
+                  labelStyle: const TextStyle(color: Colors.black),
+                  hint: const Text("Type your number here"),
+                  prefixIcon: const Icon(Icons.monetization_on_outlined),
+                  filled: true,
+                  fillColor: Colors.white,
+                  focusedBorder: border,
+                  enabledBorder: border,
+                ),
+                keyboardType: const TextInputType.numberWithOptions(
+                  decimal: true,
+                  signed: true,
+                ),
               ),
             ),
           ],
