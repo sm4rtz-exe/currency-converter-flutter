@@ -1,12 +1,22 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
-class CurrencyConverterMaterialPage extends StatelessWidget {
-  const CurrencyConverterMaterialPage({super.key});
+class CurrencyConverterMaterialPage extends StatefulWidget {
+  CurrencyConverterMaterialPage({super.key}) {
+    print("Create Constructure");
+  }
 
   @override
+  State<CurrencyConverterMaterialPage> createState() {
+    print("Create State");
+    return _CurrencyConverterMaterialPageState();
+  }
+}
+
+class _CurrencyConverterMaterialPageState
+    extends State<CurrencyConverterMaterialPage> {
+  @override
   Widget build(BuildContext context) {
-    int result = 0;
     final TextEditingController texteditingcontroller = TextEditingController();
 
     final border = const OutlineInputBorder(
@@ -36,9 +46,9 @@ class CurrencyConverterMaterialPage extends StatelessWidget {
           children: [
             Container(
               margin: const EdgeInsets.only(bottom: 10.0),
-              child: const Text(
-                "0",
-                style: TextStyle(
+              child: Text(
+                "result.toString()",
+                style: const TextStyle(
                   fontSize: 100,
                   color: Colors.white,
                   fontWeight: FontWeight.w800,
@@ -54,6 +64,7 @@ class CurrencyConverterMaterialPage extends StatelessWidget {
                     print(value);
                   }
                 },
+                controller: texteditingcontroller,
                 style: const TextStyle(color: Colors.black),
                 decoration: InputDecoration(
                   labelStyle: const TextStyle(color: Colors.black),
@@ -74,9 +85,7 @@ class CurrencyConverterMaterialPage extends StatelessWidget {
               padding: const EdgeInsets.all(10.0),
               child: TextButton(
                 onPressed: () {
-                  if (kDebugMode) {
-                    print("Hello world");
-                  }
+                  if (kDebugMode) {}
                 },
 
                 style: TextButton.styleFrom(
