@@ -2,23 +2,26 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 class CurrencyConverterMaterialPage extends StatefulWidget {
-  CurrencyConverterMaterialPage({super.key}) {
-    print("Create Constructure");
-  }
-
+  const CurrencyConverterMaterialPage({super.key});
   @override
   State<CurrencyConverterMaterialPage> createState() {
-    print("Create State");
     return _CurrencyConverterMaterialPageState();
   }
 }
 
 class _CurrencyConverterMaterialPageState
     extends State<CurrencyConverterMaterialPage> {
+  double result = 0;
+  final TextEditingController texteditingcontroller = TextEditingController();
+
+  void convert() {
+    setState(() {
+      result = double.parse(texteditingcontroller.text) * 30;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
-    final TextEditingController texteditingcontroller = TextEditingController();
-
     final border = const OutlineInputBorder(
       borderSide: BorderSide(
         color: Colors.black,
@@ -47,12 +50,12 @@ class _CurrencyConverterMaterialPageState
             Container(
               margin: const EdgeInsets.only(bottom: 10.0),
               child: Text(
-                "result.toString()",
+                "${result != 0 ? result.toStringAsFixed(2) : result.toStringAsFixed(0)} Baht",
                 style: const TextStyle(
-                  fontSize: 100,
+                  fontSize: 50,
                   color: Colors.white,
                   fontWeight: FontWeight.w800,
-                  height: 1, // ลดช่องว่างภายในของตัวอักษร
+                  height: 1,
                 ),
               ),
             ),
@@ -85,7 +88,7 @@ class _CurrencyConverterMaterialPageState
               padding: const EdgeInsets.all(10.0),
               child: TextButton(
                 onPressed: () {
-                  if (kDebugMode) {}
+                  convert();
                 },
 
                 style: TextButton.styleFrom(
