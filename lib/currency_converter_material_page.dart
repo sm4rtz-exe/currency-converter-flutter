@@ -21,11 +21,6 @@ class _CurrencyConverterMaterialPageState
   }
 
   @override
-  void initState() {
-    super.initState();
-  }
-
-  @override
   void dispose() {
     texteditingcontroller.dispose();
     super.dispose();
