@@ -15,7 +15,12 @@ class _CurrencyConverterCupertinoPageState
 
   void convert() {
     setState(() {
-      result = double.parse(texteditingcontroller.text) * 30;
+      double? number = double.tryParse(texteditingcontroller.text);
+      if (number == null) {
+        result = 0;
+      } else {
+        result = number * 30;
+      }
     });
   }
 
