@@ -21,6 +21,17 @@ class _CurrencyConverterMaterialPageState
   }
 
   @override
+  void initState() {
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    texteditingcontroller.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     final border = const OutlineInputBorder(
       borderSide: BorderSide(
